@@ -15,47 +15,20 @@ public class Element implements Weightable {
     private int protonNum;
     private double atomWeight;
     private int date;
-    private int cislo;
+    // vymazane nepotrebne konstruktory
     
-
-    public Element(String name, String symbol, int protonNum, double atomWeight, int date) {
-        this.name = name;
-        this.symbol = symbol;
-        this.protonNum = protonNum;
-        this.atomWeight = atomWeight;
-        this.date = 0;
-    }
-
     public Element(String name, String symbol, int protonNum, double atomWeight) {
         this.name = name;
         this.symbol = symbol;
         this.protonNum = protonNum;
         this.atomWeight = atomWeight;
-        this.date = 0;
+        this.date = -1;
     }
+    public int getProtonNum() {
+        return protonNum;
+    }
+
     
-        public Element(String input) {
-        String[] info = input.split(",");
-        this.name = info[0];
-        this.symbol = info[1];
-        this.protonNum = Integer.parseInt(info[2]);
-        this.atomWeight = Double.parseDouble(info[3]);
-        this.date = 0;
-    }
-
-    Element(String name, int cislo, String symbol, double hmotnost) {
-        this.name = name;
-        this.symbol = symbol;
-        this.cislo = cislo ;
-        this.atomWeight = hmotnost;
-        this.date = 0;
-    }
-
-    Element(String name, int year) {
-        this.name = name;
-        this.date = 0;
-    }
-
     public void setDate(int date) {
         this.date = date;
     }
@@ -76,24 +49,23 @@ public class Element implements Weightable {
         this.symbol = symbol;
     }
 
-    
-    
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProtonNum(int protonNum) {
+        this.protonNum = protonNum;
+    }
+
+    public void setAtomWeight(double atomWeight) {
+        this.atomWeight = atomWeight;
+    }
+
     public double getAtomWeight() {
         return atomWeight;
     }
-
-    public Element addEl(String input) {
-        String[] info = input.split(",");
-        name = info[0];
-        symbol = info[1];
-        protonNum = Integer.parseInt(info[2]);
-        atomWeight = Double.parseDouble(info[3]);
-        date = 0;
-
-        Element temp = new Element(name, symbol, protonNum, atomWeight, date);
-        return temp;
-    }
-
+    
+    //smazani nepotrebne funkce addEl
     @Override
     public double getWeight() {
         return getAtomWeight();

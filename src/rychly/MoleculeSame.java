@@ -12,26 +12,27 @@ import java.util.ArrayList;
  */
 public class MoleculeSame implements Weightable {
 
+    private Element el;
+    private int amount;
     private ArrayList<Element> molecules;
-    
+
+    // vytvoreni  elementu pro tuto tridu a nasledne ulozeni zadaneho elementu do instance tridy
     public MoleculeSame(Element el, int amount) {
-          ArrayList<Element> mol = new ArrayList<>();
-          for (int i = 0; i < amount; i++) {
-           mol.add(el);
-        }
-        this.molecules = mol;
+        this.el = el;
+        this.amount = amount;
     }
-    
-    
-    
+
+    public Element getEl() {
+        return this.el;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
     @Override
     public double getWeight() {
-        int total = 0;
-        for (int i = 0; i < molecules.size(); i++) {
-            total += molecules.get(i).getAtomWeight();
-        }
-        return total;
+        return el.getWeight() * amount;
     }
-    
 
 }
